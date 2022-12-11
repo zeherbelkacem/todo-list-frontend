@@ -1,3 +1,5 @@
+<app-navbar></app-navbar>
+<app-todo></app-todo>
 <div class="container">
   <nav
     class="navbar navbar-expand-lg navbar-light d-flex mt-3"
@@ -31,6 +33,7 @@
                 <th class="h3" style="background-color: #007bff">TITLE</th>
                 <th class="h3" style="background-color: #007bff">STATE</th>
                 <th class="h3" style="background-color: #007bff">DONE ?</th>
+                <th class="h3" style="background-color: #007bff">EDIT</th>
               </tr>
             </thead>
             <tbody>
@@ -40,6 +43,10 @@
                 <td>
                     <input type="checkbox" [checked]="todo.done" (change)="changeState(todo, $event)"/>
                 </td>
+                <td>
+                  <a routerLink="/editTodo/{{todo.id}}"><i
+                      class="fas fa-edit" ></i></a>
+              </td>
 
               </tr>
             </tbody>

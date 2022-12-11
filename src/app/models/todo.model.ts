@@ -3,4 +3,5 @@ export interface Todo{
   title: string;
   relatedState: string;
   done: boolean;
+  description: string;
 }

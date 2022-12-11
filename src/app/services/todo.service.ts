@@ -15,7 +15,11 @@ export class TodoService {
 
   public postTodo(todo : Todo){
     console.log(todo);
-    return this.http.post<Todo>("http://localhost:8086/api/todo/v1/save", todo)
+    return this.http.post<Todo>(environment.TODO_URL+"/save", todo)
+  }
+
+  public getTodoById(todoId : number): Observable<Todo>{
+    return this.http.get<Todo>(environment.TODO_URL+"/"+todoId)
   }
 
   constructor(

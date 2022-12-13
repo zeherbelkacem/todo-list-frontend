@@ -10,16 +10,16 @@ import { Todo } from '../models/todo.model';
 export class TodoService {
 
   public getAllTodos(): Observable<Todo[]>{
-    return this.http.get<Todo[]>(environment.TODO_URL+"/todos");
+    return this.http.get<Todo[]>("http://localhost:8086/api/todo/v1"+"/todos");
   }
 
   public postTodo(todo : Todo): Observable<Todo>{
     console.log(todo);
-    return this.http.post<Todo>(environment.TODO_URL+"/save", todo);
+    return this.http.post<Todo>("http://localhost:8086/api/todo/v1"+"/save", todo);
   }
 
   public getTodoById(todoId : number): Observable<Todo>{
-    return this.http.get<Todo>(environment.TODO_URL+"/"+todoId)
+    return this.http.get<Todo>("http://localhost:8086/api/todo/v1"+"/"+todoId)
   }
 
   constructor(

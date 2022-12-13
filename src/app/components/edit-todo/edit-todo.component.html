@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+
 <div class="container mt-4">
     <div class="card text-center">
         <div class="card-body container-fluid">
@@ -24,10 +24,12 @@
             </div>
           </div>
           <ng-template #elseTodo>
-            <div class="bg-danger h2">This todo can't be displayed</div>
+            <div class="bg-danger">The TODO resource is not found</div>
           </ng-template>
 
-          <div class="card-footer text-muted"></div>
+          <div class="card-footer text-muted">
+            <a class="text-primary" routerLink="/todo">Go back</a>
+          </div>
         </div>
       </div>
 </div>

@@ -13,9 +13,9 @@ export class TodoService {
     return this.http.get<Todo[]>(environment.TODO_URL+"/todos");
   }
 
-  public postTodo(todo : Todo){
+  public postTodo(todo : Todo): Observable<Todo>{
     console.log(todo);
-    return this.http.post<Todo>(environment.TODO_URL+"/save", todo)
+    return this.http.post<Todo>(environment.TODO_URL+"/save", todo);
   }
 
   public getTodoById(todoId : number): Observable<Todo>{

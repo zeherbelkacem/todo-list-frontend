@@ -9,6 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditTodoComponent } from './components/edit-todo/edit-todo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TodoComponent,
     NavbarComponent,
     EditTodoComponent,
+    AddTodoComponent,
 
   ],
   imports: [

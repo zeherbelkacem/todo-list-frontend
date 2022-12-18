@@ -10,6 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditTodoComponent } from './components/edit-todo/edit-todo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { DonesComponent } from './components/dones/dones.component';
+import { TodosComponent } from './components/todos/todos.component';
+import { TodoNavbarComponent } from './components/todo-navbar/todo-navbar.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +23,9 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
     NavbarComponent,
     EditTodoComponent,
     AddTodoComponent,
+    DonesComponent,
+    TodosComponent,
+    TodoNavbarComponent,
 
   ],
   imports: [
@@ -26,7 +34,8 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Todo } from 'src/app/models/todo.model';
 import { TodoService } from 'src/app/services/todo.service';
 
@@ -12,24 +13,38 @@ import { TodoService } from 'src/app/services/todo.service';
 export class AddTodoComponent implements OnInit {
   myTodoForm!: FormGroup;
   error = false;
+  todo$!:Observable<Todo>
   constructor(
     private fb: FormBuilder,
     private todoService: TodoService,
-    private router: Router
+    private router: Router,
+    private activateRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.myTodoForm = this.fb.group({
-      id: [0],
-      title: ['', Validators.required],
-      description: [],
-    });
-  }
+    let id = this.activateRoute.snapshot.params['id'];
+
+    if(id !== 0){
+      this.todo$ = this.todoService.getTodoById(id);
+      this.todo$.subscribe((t)=>{
+        this.myTodoForm = this.fb.group({
+          id: [t.id],
+          title: [t.title, Validators.required],
+          description: [t.description],
+        });
+      })
+    }
+      this.myTodoForm = this.fb.group({
+        id: [0],
+        title: ['', Validators.required],
+        description: [],
+      });
+      }
 
   addTodo(myTodoForm: FormGroup) {
     this.todoService
       .postTodo({
-        id: 0,
+        id: myTodoForm.value.id,
         title: myTodoForm.value.title,
         relatedState: 'TODO',
         done: false,

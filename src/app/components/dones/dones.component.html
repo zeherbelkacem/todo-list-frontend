@@ -12,13 +12,13 @@
               <tr>
                 <th class="h5" style="background-color: #007bff">TITLE</th>
                 <th class="h5" style="background-color: #007bff">STATE</th>
-                <th class="h5" style="background-color: #007bff">DESCRIPTION</th>
+                <th class="h5" style="background-color: #007bff">
+                  DESCRIPTION
+                </th>
                 <th class="h5" style="background-color: #007bff">
                   UPDATE STATE ?
                 </th>
-                <th class="h5" style="background-color: #007bff">
-                  REMOVE
-                </th>
+                <th class="h5" style="background-color: #007bff">REMOVE</th>
                 <th class="h5" style="background-color: #007bff">EDIT</th>
               </tr>
             </thead>
@@ -27,22 +27,13 @@
                 <td>{{ todo.title }}</td>
                 <td>{{ todo.relatedState }}</td>
                 <td>{{ todo.description }}</td>
-                <td>
-                  <input
-                    type="checkbox"
-                    [checked]="todo.done"
-                    (change)="changeState(todo, $event)"
-                  />
-                </td>
+                <td>components interaction</td>
+                <td>components interaction</td>
                 <td>
                   <a routerLink="/editTodo/{{ todo.id }}"
                     ><i class="fas fa-edit"></i
                   ></a>
                 </td>
-                <td>
-                  <a class="btn" (click)="deleteTodo(todo.id)"><i
-                          class="fas fa-trash-alt"></i></a>
-              </td>
               </tr>
             </tbody>
           </table>

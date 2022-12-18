@@ -29,5 +29,9 @@ export class EditTodoComponent implements OnInit {
     });
   }
 
+  modifyTodo(todo: Todo){
+
+  }
+
 
 }

@@ -24,19 +24,22 @@ export class TodoComponent implements OnInit {
   }
 
   changeState(todo: Todo, event: any) {
-    if (todo.relatedState === 'DONE') {
-      todo.done = false;
-      todo.relatedState = 'TODO';
-    } else {
-      todo.done = true;
-      todo.relatedState = 'DONE';
-    }
-
-    this.todoService.postTodo(todo).subscribe({
+    this.todoService.updateTodo(todo).subscribe({
       next: (data) => window.location.reload(),
       error: (err) => (
         (this.error = err.error.details), this.router.navigateByUrl('/todo')
       ),
     });
+  }
+
+  deleteTodo(todoId: number) {
+    if (confirm('Are you sure to delete ')) {
+      this.todoService.deleteTodo(todoId).subscribe({
+        next: (data) => window.location.reload(),
+        error: (err) => (
+          (this.error = err.error.details), this.router.navigateByUrl('/todo')
+        ),
+      });
+    }
   }
 }
